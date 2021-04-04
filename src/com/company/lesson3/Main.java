@@ -8,7 +8,6 @@ public class Main {
     public static final int rangeValue = 10;
     public static Random random = new Random();
     public static Scanner scanner = new Scanner(System.in);
-    public static final int lengthBoard = 15;
     public static String[] words = {"apple",
                                     "orange",
                                     "lemon",
@@ -63,16 +62,13 @@ public class Main {
             System.out.print("Введите слово: ");
             userWord = scanner.next().toLowerCase();
             StringBuilder answer = new StringBuilder();
-            int i = Math.min(randomWordFromArray.length(), userWord.length());
-            for (int j = 0 ; j < lengthBoard; j++)
+            for (int j = 0 ; j < userWord.length(); j++)
             {
-                if (j < i)
-                {
                     if (randomWordFromArray.charAt(j) == userWord.charAt(j))
                         answer.append(randomWordFromArray.charAt(j));
                     else answer.append("#");
-                } else answer.append("#");
             }
+            answer.append("##########");
             if (!randomWordFromArray.equals(userWord))
                 System.out.println("Вы не угадали =( Совпадающие буквы: " + answer);
 
